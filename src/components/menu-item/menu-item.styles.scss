@@ -9,6 +9,8 @@
   margin: 0 7.5px 15px;
   transition: all 1s ease;
   overflow: hidden;
+  list-style: none;
+  text-decoration: none;
   &.larger {
     height: 380px;
   }
