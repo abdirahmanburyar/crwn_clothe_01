@@ -1,0 +1,25 @@
+.collection-item {
+    display: flex;
+    flex-direction: column;;
+    width: 22%;
+    height: 350px;
+    align-items: center;
+
+    .image {
+        width: 100%;
+        height: 95%;
+        background-position: center;
+        background-size: cover;
+        margin-bottom: 5px;
+    }
+    .collection-foote{
+        height: 5%;
+        margin: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+    }
+
+}
