@@ -9,11 +9,8 @@ export default function PreviewColelction({title, items}) {
             <h1 className="title">{title}</h1>
             <div className="preview">
                 {
-                    items.filter((item, idx, array) => {
-                        // const rand = Math.floor(Math.random() * array.length)
-
-                        return idx < 4
-                    } ).map(({id, ...otherPropsitem}) => <CollectionItem key={id} {...otherPropsitem} /> )
+                    items.filter((item, idx, array) => idx < 4 )
+                    .map(({id, ...otherPropsitem}) => <CollectionItem key={id} {...otherPropsitem} /> )
                 }
             </div>
         </div>

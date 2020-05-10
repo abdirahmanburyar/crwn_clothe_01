@@ -7,7 +7,7 @@ export default function CollectionItem({name, id, price, imageUrl}) {
             <div className="image" style={{
                 backgroundImage: `url(${imageUrl})`
             }} />
-            <div className="collection-foote">
+            <div className="collection-footer">
                 <span className="name">{name}</span>
                 <span className="price">${price}</span>
             </div>

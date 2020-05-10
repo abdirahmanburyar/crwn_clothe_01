@@ -1,0 +1,31 @@
+.sign-up{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    h2{
+        font-size: 30px;
+    }
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 80%;
+        padding: 10px;
+
+        .signup-btn {
+            width: 40%;
+            border: none;
+            background: none;
+            border: 1px solid black;
+            height: 40px;
+            margin-top: 10px;
+            background-color: black;
+            color: white;
+            border-color: black;
+            cursor: pointer;
+        }
+    }
+
+}
