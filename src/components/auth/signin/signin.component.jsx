@@ -3,6 +3,8 @@ import './signin.styles.scss'
 import Input from '../../input/input.component'
 import CustomButton from '../../custom-button/custom-button.component'
 import { auth, sigInWithGoogle, createUserProfileDoc } from '../../../firebase/firebase.utils'
+import { loginError } from '../../../redux/user/user.action'
+import { connect } from 'react-redux'
 class SignIn extends Component {
     constructor(){
         super()
@@ -66,4 +68,10 @@ class SignIn extends Component {
         )
     }
 }
-export default SignIn
+const mapDispatchToProps = dispatch => {
+    return {
+    loginError: err => dispatch(loginError(err))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignIn)
