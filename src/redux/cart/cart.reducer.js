@@ -1,3 +1,4 @@
+import { addToCartItem } from './cart.utils'
 const INITIAL_STATE = {
     cartHidden: false,
     cart: []
@@ -13,7 +14,7 @@ const headerCart = (state = INITIAL_STATE, { type, payload }) => {
             case 'ADD_TO_CART':
                 return {
                 ...state,
-                cart: [...state.cart, payload]
+                cart: addToCartItem(payload, state.cart)
                 }
         default: 
             return state

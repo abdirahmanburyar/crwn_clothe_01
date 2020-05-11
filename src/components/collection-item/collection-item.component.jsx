@@ -12,7 +12,7 @@ const CartItems = ({ item, addCart }) => {
                     <span className="name">{item.name}</span>
                     <span className="price">${item.price}</span>
                 </div>
-                <button className='addCart' onClick={() => addCart(item)}>Add To Cart</button>
+                <button className='addCart' onClick={() => addCart(item)}>Add To Cart <i className="fas fa-shopping-cart"></i></button>
             </div>
         )
 }
