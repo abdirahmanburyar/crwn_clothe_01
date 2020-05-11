@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
-    cartHidden: false
+    cartHidden: false,
+    cart: []
 }
 
 const headerCart = (state = INITIAL_STATE, { type, payload }) => {
@@ -9,6 +10,11 @@ const headerCart = (state = INITIAL_STATE, { type, payload }) => {
                 ...state,
                 cartHidden: !state.cartHidden
             }
+            case 'ADD_TO_CART':
+                return {
+                ...state,
+                cart: [...state.cart, payload]
+                }
         default: 
             return state
     }
