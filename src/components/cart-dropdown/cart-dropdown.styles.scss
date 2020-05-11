@@ -26,7 +26,21 @@
     }
   }
 
-  .checkout {
-    margin-top: auto;
+  .checkoutBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    background: firebrick;
+    opacity: 0.7;
+    height: 40px;
+    box-shadow: 1px 1px 1px 1px gray;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

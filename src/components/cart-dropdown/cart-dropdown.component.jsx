@@ -1,41 +1,29 @@
 import React from 'react'
-import CustomBtn from '../custom-button/custom-button.component'
 import './cart-dropdown.styles.scss'
-import CartIcon from '../cart-icon/cart-icom.component'
-export default function CartDropdown() {
+import CartItem from '../cart-item/cart-item.component'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+const CartDropdow = ({ cart }) => {
+    console.log(cart)
     return (
         <div className="cart-dropdown">
             <div className="cart-items">
-            <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
-                <div className="item">
-                    <CartIcon />
-                    <span>Home</span>
-                </div>
+                {
+                    cart.map(({id, ...otherItem }) => {
+                        console.log(otherItem)
+                        return (<CartItem key={id} {...otherItem} />)
+                    })
+                }
             </div>
-            <CustomBtn className="checkout" value="Go to Checkout" />
+                <Link to="/checkout" className="checkoutBtn">Go to Checkout</Link>
         </div>
     )
 }
+
+const mapStateToProps = ({ cart: { cart }}) => {
+    return {
+        cart
+    }
+}
+
+export default connect(mapStateToProps)(CartDropdow)
