@@ -2,9 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from './crown.svg'
 import './header.styles.scss'
+import CartIcon from '../cart-icon/cart-icom.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux'
-const Header = ({ currentUser}) => {
+const Header = ({ currentUser, cartToggle }) => {
     return (
         <div className="header">
            <Link to="/">
@@ -25,15 +27,20 @@ const Header = ({ currentUser}) => {
                         <Link to="/auth">Sign In</Link>
                     )
                 }
+                <CartIcon onClick={() => 'cartShowAndHide'} />
            </div>
-            
+            {
+                cartToggle ? (<CartDropdown />) : ''
+            }
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
+    console.log(state.cartToggle.cartHidden)
     return {
-        currentUser: state.user.currentUser
+        currentUser: state.user.currentUser,
+        cartToggle: state.cartToggle.cartHidden
     }
 }
 
