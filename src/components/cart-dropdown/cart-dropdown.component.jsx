@@ -4,6 +4,7 @@ import CartItem from '../cart-item/cart-item.component'
 import { selectCartItem } from '../../redux/cart/cart.reselector'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect'
 const CartDropdow = ({ cart }) => {
     console.log(cart)
     return (
@@ -21,10 +22,8 @@ const CartDropdow = ({ cart }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        cart: selectCartItem(state)
-    }
-}
+const mapStateToProps = createStructuredSelector({
+    cart: selectCartItem
+})
 
 export default connect(mapStateToProps)(CartDropdow)
