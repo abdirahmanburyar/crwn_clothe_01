@@ -1,6 +1,7 @@
 import React from 'react'
 import './cart-dropdown.styles.scss'
 import CartItem from '../cart-item/cart-item.component'
+import { selectCartItem } from '../../redux/cart/cart.reselector'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 const CartDropdow = ({ cart }) => {
@@ -20,9 +21,9 @@ const CartDropdow = ({ cart }) => {
     )
 }
 
-const mapStateToProps = ({ cart: { cart }}) => {
+const mapStateToProps = (state) => {
     return {
-        cart
+        cart: selectCartItem(state)
     }
 }
 
