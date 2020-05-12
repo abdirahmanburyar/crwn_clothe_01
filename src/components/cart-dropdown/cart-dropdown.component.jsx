@@ -3,9 +3,10 @@ import './cart-dropdown.styles.scss'
 import CartItem from '../cart-item/cart-item.component'
 import { selectCartItem } from '../../redux/cart/cart.reselector'
 import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import {  withRouter } from 'react-router-dom'
 import { createStructuredSelector } from 'reselect'
-const CartDropdow = ({ cart, history }) => {
+import { cartShowAndHide } from '../../redux/cart/cart.action'
+const CartDropdow = ({ cart, history, dispatch }) => {
     return (
         <div className="cart-dropdown">
             <div className="cart-items">
@@ -21,7 +22,10 @@ const CartDropdow = ({ cart, history }) => {
                     )
                 }
             </div>
-                <button onClick={() => history.push('/checkout')} className="checkoutBtn">Go to Checkout</button>
+                <button onClick={() => {
+                    history.push('/checkout')
+                    dispatch(cartShowAndHide())
+                }} className="checkoutBtn">Go to Checkout</button>
             </div>
     )
 }
