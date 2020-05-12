@@ -23,20 +23,12 @@
   }
 
   .quantity {
-    padding-left: 20px;
-    
-    button{
-      border: none;
-      background: none;
-      padding: 5px;
+    display: flex;
+    .arrow{
       cursor: pointer;
-      
-      .decrease{
-        width: 20px;
-      }
-      .increase{
-        width: 20px;
-      }
+    }
+    .value {
+      margin: 0 10px;
     }
   }
 

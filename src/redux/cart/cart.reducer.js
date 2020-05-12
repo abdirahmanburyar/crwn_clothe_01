@@ -1,4 +1,4 @@
-import { addToCartItem } from './cart.utils'
+import { addToCartItem, removeItemFromCart, decreaseCartItem } from './cart.utils'
 const INITIAL_STATE = {
     cartHidden: false,
     cart: []
@@ -15,6 +15,16 @@ const headerCart = (state = INITIAL_STATE, { type, payload }) => {
                 return {
                 ...state,
                 cart: addToCartItem(payload, state.cart)
+                }
+            case 'REMOVE_ITEM':
+                return {
+                ...state,
+                cart: removeItemFromCart(payload, state.cart)
+                }
+            case 'DECREASE_CART':
+                return {
+                ...state,
+                cart: decreaseCartItem(payload, state.cart)
                 }
         default: 
             return state

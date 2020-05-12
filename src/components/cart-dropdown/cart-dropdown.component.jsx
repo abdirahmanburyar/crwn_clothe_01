@@ -13,7 +13,6 @@ const CartDropdow = ({ cart, history, dispatch }) => {
                 {
                     cart.length ?
                     cart.map(({id, ...otherItem }) => {
-                        console.log(otherItem)
                         return (<CartItem key={id} {...otherItem} />)
                     })
                     :
