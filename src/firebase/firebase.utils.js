@@ -10,37 +10,34 @@ const config = {
     storageBucket: "crwn-clothing-db-28c98.appspot.com",
     messagingSenderId: "241073545520",
     appId: "1:241073545520:web:cdcf38da4d19e1a711e8f5"
-  };
-
-  firebase.initializeApp(config)
-
-
-  export const createUserProfileDoc = async (userAuth, addAdditional) => {
-    if (!userAuth) return;
-    const userRef = await firestore.doc(`users/${userAuth.uid}`)
-    const snapShot = await userRef.get()
-    if (!snapShot.exists){
-        const { displayName, email} = userAuth
-        const createdAt = new Date()
-        try {
-          await userRef.set({
-            displayName,
-            email,
-            createdAt,
-            ...addAdditional
-          })
-        } catch (err) {
-          console.log('Error creating user', err.message)
-        }
+};
+    firebase.initializeApp(config)
+    export const createUserProfileDoc = async userAuth => {
+      if(!userAuth) return;
+      const userRef = await firestore.doc(`users/${userAuth.uid}`)
+      const snapShot = userRef.get()
+      if(!snapShot.exists){
+        const { displayName, email } = userAuth
+          const createdAt= new Date()
+          try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt
+            })
+          } catch (err){
+              console.log('error occured while creating a user', err)
+          }
+      }
+      return userRef
     }
-    return userRef
-  }
-  export const auth = firebase.auth()
-  export const firestore = firebase.firestore()
+    export const firestore = firebase.firestore()
+    export const auth = firebase.auth()
 
-  const provider  = new firebase.auth.GoogleAuthProvider()
-  provider.setCustomParameters({ promt: 'select_account'})
-  
-  export const sigInWithGoogle = () => auth.signInWithPopup(provider)
+    const provider = new firebase.auth.GoogleAuthProvider()
 
-  export default firebase;
+    provider.setCustomParameters({ promt: 'select_account'})
+
+    export const signInWithGoogle = () => auth.signInWithPopup(provider)
+
+    export default firebase

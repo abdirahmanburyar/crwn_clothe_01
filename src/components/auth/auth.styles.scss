@@ -1,5 +1,31 @@
 .auth-page {
-    width: 95%;
+    width: 90%;
     display: flex;
-    justify-content: space-between
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    button {
+        width: 20vw;
+        height: 70px;
+        cursor: pointer;
+        letter-spacing: 5px;
+        margin-bottom: 10px;
+        &:first-child:hover{
+            color: white;
+            background: #d65959;
+        }
+        &:nth-child(2):hover{
+            color: white;
+            background: #272323;
+        }
+        &:nth-child(3):hover{
+            color: white;
+            background: #3d2cd8;
+        }
+        &:last-child:hover{
+            color: white;
+            background: #9ab1f0;
+        }
+    }
 }

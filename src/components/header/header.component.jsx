@@ -5,9 +5,9 @@ import './header.styles.scss'
 import CartIcon from '../cart-icon/cart-icom.component'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component'
 import { auth } from '../../firebase/firebase.utils'
-import { createStructuredSelector } from 'reselect'
 import { cartHidden } from '../../redux/cart/cart.reselector'
 import { setCurrentUser } from '../../redux/user/user.selector'
+import { createStructuredSelector } from 'reselect'
 import { connect } from 'react-redux'
 const Header = ({ currentUser, cartToggle }) => {
     return (
@@ -24,13 +24,15 @@ const Header = ({ currentUser, cartToggle }) => {
                 </Link>
                 {
                     currentUser ? 
-                    (<div className="option" onClick={() => auth.signOut()}>Sign Out</div>)
+                    (
+                        <div className="option" onClick={() => auth.signOut()}>Sign Out</div>
+                    )
                     :
                     (
                         <Link to="/auth">Sign In</Link>
                     )
                 }
-                <CartIcon onClick={() => 'cartShowAndHide'} />
+                <CartIcon />
            </div>
             {
                 cartToggle ? (<CartDropdown />) : ''

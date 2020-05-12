@@ -1,12 +1,22 @@
 import React from 'react'
-import SignIn from './signin/signin.component'
-import SignUp from './signup/signup.component'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { signInWithGoogle } from '../../firebase/firebase.utils'
 import './auth.styles.scss'
-export default function Auth() {
-    return (
+import { createStructuredSelector } from 'reselect'
+import { setCurrentUser } from '../../redux/user/user.selector'
+const Authentication = ({ currentUser }) => currentUser ? (<Redirect to="/" />) : (
         <div className="auth-page">
-            <SignIn />
-            <SignUp />
+            <button onClick={() => signInWithGoogle() }>Sign In with <i className="fab fa-google"></i></button>
+            <button>Sign In with <i className="fab fa-github"></i></button>
+            <button>Sign In with <i className="fab fa-facebook-f"></i></button>
+            <button>Sign In with <i className="fab fa-twitter"></i></button>
         </div>
     )
-}
+
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: setCurrentUser
+})
+
+export default connect(mapStateToProps)(Authentication)
