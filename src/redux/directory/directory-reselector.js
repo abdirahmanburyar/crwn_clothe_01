@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect'
 
-const sectoinsSelector = state => state.sections
-console.log(sectoinsSelector)
+const sectoinsSelector = state => state.directory
+
 export const getItemSections = createSelector(
     [sectoinsSelector],
-    (sections) => sections.sections
+    (directory) => directory.sections
 )
