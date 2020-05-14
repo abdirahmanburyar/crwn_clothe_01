@@ -1,11 +1,15 @@
-import SHOP_DATA from './shop.data'
 
 const INITIAL_STATE = {
-    collections: SHOP_DATA
+    collections: null
 }
 
-export default (state = INITIAL_STATE, { type }) => {
+export default (state = INITIAL_STATE, { type, payload }) => {
     switch(type){
+        case 'COLLECTIONS': 
+        return {
+            ...state,
+            collections: payload
+        }
         default: 
         return state
     }
